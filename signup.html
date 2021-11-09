@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>SignUp</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <div class="container"><br>
+        <h1 class=" text-center">SIGN UP</h1><br>
+        <div class="col-lg-8 m-auto d-block">  
+
+            <form action="indexlogin.html" onsubmit="return validation()&&validate1()&&validate2()" class="bg-light">
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" name="user" class="form-control" id="user" required  >
+                    <span id="username" class=" font-weight-bold" ></span>
+                 </div>
+
+                 <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" name="pass" class="form-control" id="pass" required >
+                    <span id="passwords" class="font-weight-bold" ></span>
+                    
+                 </div>
+
+                 <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="text" name="conpass" class="form-control" id="conpass" required>
+                    <span id="confmpass" class=" font-weight-bold" ></span>
+
+                 </div>
+                 <div class="form-group">
+                    <label>Contact Number:</label>
+                    <input type="mobile" name="user" class="form-control" id="mobileNumber" required >
+                    <span id="mobileno" class=" font-weight-bold" ></span>
+
+                 </div>
+
+                 <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="email" class="form-control" id="emails" required>
+                    <span id="emailids" class="font-weight-bold"></span>
+
+                 </div>
+
+                 <input type="submit" name="submit" value="submit" class="btn btn-success"  >
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" >
+
+         function validation(){
+
+             var user=document.getElementById('user').value;
+             var pass=document.getElementById('pass').value;
+             var conpass=document.getElementById('conpass').value;
+             var mobileNumber=document.getElementById('mobileNumber').value;
+             var emails=document.getElementById('emails').value;
+           
+
+
+
+            
+             if((user.length<=2)||(user.length>20)){
+                document.getElementById('username').innerHTML="Username length must be between 3 and 20";
+                username.style.color="red";
+                 return false;
+
+             }
+             
+
+            
+
+
+var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+
+             if(strongRegex.test(pass)) {
+         passwords.innerHTML="strong";
+         passwords.style.color="green";
+         return true;
+                    } else if(mediumRegex.test(pass)) {
+                        passwords.innerHTML="medium";
+         passwords.style.color="orange";
+         return false;
+                    } else {
+                        passwords.innerHTML="weak";
+         passwords.style.color="red";
+         return false;
+                    }
+
+
+         }
+         
+
+         function validate1(){
+
+            var user=document.getElementById('user').value;
+             var pass=document.getElementById('pass').value;
+             var conpass=document.getElementById('conpass').value;
+             var mobileNumber=document.getElementById('mobileNumber').value;
+             var emails=document.getElementById('emails').value;
+
+    let regexm=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+    if(regexm.test(mobileNumber)){
+        mobileno.innerHTML="valid format"
+        mobileno.style.color="green";
+        return true;
+    }else{
+        mobileno.innerHTML="Invalid format"
+        mobileno.style.color="red";
+        return false;
+    }
+}
+
+
+
+         function validate2(){
+
+            var user=document.getElementById('user').value;
+             var pass=document.getElementById('pass').value;
+             var conpass=document.getElementById('conpass').value;
+             var mobileNumber=document.getElementById('mobileNumber').value;
+             var emails=document.getElementById('emails').value;
+
+             if(pass!=conpass){
+                document.getElementById('confmpass').innerHTML="Password is not matching";
+                confmpass.style.color="red";
+
+                 return false;
+             }
+
+
+           
+                    
+     let regex=/^([\w\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3}?)$/
+     if(regex.test(emails)){
+         emailids.innerHTML="valid";
+         emailids.style.color="green";
+         return true;
+     }else
+     {
+     emailids.innerHTML="invalid";
+     emailids.style.color="red";
+     return false;
+     }
+         }
+
+
+
+         
+
+    </script>
+    
+</body>
+</html>
+<!-- //  if(conpass==""){
+    //      document.getElementById('confmpass').innerHTML="Please confirm your password";
+    //      return false;
+    //  }
+     
+
+
+
+   
+    //  if(isNaN(mobileNumber)){
+    //     document.getElementById('mobileno').innerHTML="Contact number must be in digits";
+    //     mobileno.style.color="red";
+
+    //      return false;
+    //  }
+    //  if((mobileNumber.length!=10)){
+    //     document.getElementById('mobileno').innerHTML="There must be 10 digits";
+    //     mobileno.style.color="red";
+
+    //      return false; -->
+    <!-- //  if(user==""){
+            //      document.getElementById('username').innerHTML="Username cannot be empty";
+            //      return false;
+            //  } -->
+
+            <!-- if(!isNaN(user)){
+                document.getElementById('username').innerHTML="only characters are allowed ";
+                 return false;
+             }
+
+      
+             if((pass.length<=8)){
+                document.getElementById('passwords').innerHTML="There must be minimum 8 characters ";
+                passwords.style.color="red";
+                 return false;
+            } -->

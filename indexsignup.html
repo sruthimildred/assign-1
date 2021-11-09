@@ -9,38 +9,48 @@
 <body>
     <div class="container">
         <div class="title">SingUp</div>
-        <form action="#">
+
+        <form action="indexlogin.html"  onsubmit="return validate()" >
+
             <div class="user-details">
                 
                     
   <div class="input-box">
     <span class="details">Full Name </span>
-<input type="text" placeholder="Enter your name" required>
+<input type="text" id="ename" placeholder="Enter your name" >
+<span id="fullname" class="text-danger font-weight-bold" ></span>
 </div>
 
 <div class="input-box">
     <span class="details">Username </span>
-<input type="text" placeholder="Enter your username" required>
+<input type="text" id="uname" placeholder="Enter your username"  >
 </div>
 
 <div class="input-box">
     <span class="details">Email</span>
-<input type="text" placeholder="Enter your email-id" required>
+<input type="text" id="email"  placeholder="Enter your email-id"   >
+<br>
+<label for="error" id="error"></label> <br>
 </div>
 
 <div class="input-box">
     <span class="details">Phone Number </span>
-<input type="text" placeholder="Enter your number" required>
+<input type="text" id="pnum" placeholder="Enter your number"  >
 </div>
 
+
 <div class="input-box">
-    <span class="details">Password </span>
-<input type="text" placeholder="Enter your password" required>
-</div>
+<span class="details">Password </span>
+<input type="text" id="pwd" placeholder="Enter your password" >
+ 
+
+
+
+
 
 <div class="input-box">
     <span class="details">Confirm Password </span>
-<input type="text" placeholder="Confirm your password" required>
+<input type="text" id="cpwd" placeholder="Confirm your password" > 
 </div>
 </div>
 
@@ -67,13 +77,14 @@
 
 </div>
 <div class="button">
-    <input type="submit" value="Register">
+<input type="submit" value="Register">
 </div>
 
         </form>
-
+        <script src="indexsingup.js"></script>
 
     </div>
     
+
 </body>
 </html>
